@@ -1,0 +1,24 @@
+{
+  "base_url": "http://127.0.0.1:5000",
+  "primary_token": "token-user1",
+  "secondary_token": "token-user2",
+  "auth_header": "Authorization",
+  "auth_scheme": "Bearer",
+  "extra_headers": {},
+  "login_endpoint": "/api/login",
+  "login_body_template": {"username": "admin", "password": "{password}"},
+  "rate_limit_requests": 20,
+  "rate_limit_window_seconds": 5.0,
+  "timeout": 5.0,
+  "verify_ssl": true,
+  "proxy": null,
+  "documented_version": "v1",
+  "endpoints": [
+    {"path": "/api/v1/users/{id}", "method": "GET", "id_param": "id", "sample_id": "1", "alt_id": "2", "auth_required": true, "sensitive_fields": ["email"], "description": "Perfil por ID"},
+    {"path": "/api/v1/users/{id}", "method": "PUT", "id_param": "id", "sample_id": "1", "auth_required": true, "body": {"name": "Teste"}, "description": "Update perfil"},
+    {"path": "/api/v1/admin/users", "method": "GET", "auth_required": true, "privileged": true, "description": "Lista admin"},
+    {"path": "/api/v1/products", "method": "GET", "auth_required": true, "description": "Lista produtos"},
+    {"path": "/api/v1/webhooks/import", "method": "POST", "auth_required": true, "url_param_for_ssrf": "target_url", "body": {"target_url": "http://example.com"}, "description": "Import webhook"},
+    {"path": "/api/v1/integration/sync", "method": "POST", "auth_required": true, "body": {"a": 1}, "description": "Sync integracao"}
+  ]
+}
